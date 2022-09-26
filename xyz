@@ -1,0 +1,73 @@
+import java.time. LocalDate:
+
+ @RestController
+ @CrossOrigin(origins = ("http://localhost: 5324/"))
+ public class FlightAppController (
+
+@Autowired
+
+private FlightRepository flightRepository;
+
+@postMapping("/flight/post")
+
+@GetMapping (" /flight/get/(source) / (destination) / (date)")
+public List<Flight> getFilteredFlights (@PathVariable ("gource") String source,
+@PathVariable ("destination") String destination,
+@PathVariable ("date") String date)
+LocalDate departureDate = LocalDate.parse (date);
+
+System.out.printin (source+" "destination+" "+departureDate);
+
+return flightRepository.findFilteredFlights(source, destination, departureDate);
+
+@GetMapping ("/flight/one/lid ")
+public Flight getFlightById(@PathVariable ("id") Long id)
+Optional<Flight> optional = flightRepository.findById (id);
+
+if(loptional.isPresent ( ) )
+throw new RuntimeException ("Invalid ID");
+Flight f = optional.get () ;
+System.out.println (f);
+return f;
+
+
+
+
+
+ import java.time. LocalDate:•
+
+@Entity
+ public class Flight
+
+@GeneratedValue (strategy = GenerationType .AUTO)
+
+private Long id;
+
+private String name;
+private String source;
+
+private String destination;
+
+private LocalDate depatureDate;
+private String depatureTime:
+
+private LocalDate arrivalDate:
+
+private String arrivalTime;
+
+private double duration:
+
+private double adultFare:
+
+private double childFare;
+private int seats;
+
+public Long getId () {
+return id;
+
+public void setId (Long id) {
+this.id
+= id;
+
+public String getName ()
+return name;
